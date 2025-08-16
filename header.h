@@ -1,14 +1,10 @@
 #ifndef HEADERS 
 #define HEADERS
 
-typedef unsigned long long U64;
-
 #define NAME "My Left Nut 1.0"
 #define BRD_SQ_NUM 120
 
-typedef int* board_t;
-
-enum side { WHITE, BLACK }; 
+enum color { WHITE, BLACK, BOTH }; 
 
 enum pieces { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK }; 
 enum files { FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NONE };
@@ -24,5 +20,32 @@ enum squares {
 	A7 = 81, B7, C7, D7, E7, F7, G7, H7,
 	A8 = 91, B8, C8, D8, E8, F8, G8, H8, NO_SQ
 };
+
+enum { FALSE, TRUE };
+enum { WKCA = 1, WQCA = 2, BKCA = 4, BQCA = 8 };
+
+
+typedef struct {
+	
+	int pieces[BRD_SQ_NUM];
+	uint64_t panws[3];
+
+	int Kingsq[2];
+
+	int side;
+	int enPas;
+	int fiftyCnt;
+	
+	int ply;
+	int hisPly;
+	
+	uint64_t posKey;
+	
+	int pceNum[13];
+	int bigPce[3];
+	int majPce[3];
+	int minPce[3];
+
+} board_t;
 
 #endif

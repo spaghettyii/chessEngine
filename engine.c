@@ -20,20 +20,18 @@
 #include <stdbool.h>
 #include "header.h"
 
-
 void initialize(board_t board)
 {
 	
+
 	return;
 }
 
 int main(int argc, char **argv)
 {
-	board_t board = calloc(BRD_SQ_NUM, sizeof(int));
 	int fiftyMoves = 0;
 	int threeRep = 0;
 	bool enPassant = false;
 
-	free(board);
 	return 0;
 }
